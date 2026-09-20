@@ -1,4 +1,5 @@
 import Banner from '@/components/homepage/Banner';
+import Book from '@/components/homepage/book';
 import React from 'react';
 
 const page = () => {
@@ -6,6 +7,7 @@ const page = () => {
     <div>
     
       <Banner></Banner>
+      <Book></Book>
     </div>
 
   );

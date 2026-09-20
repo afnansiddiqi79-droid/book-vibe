@@ -3,9 +3,10 @@ import React from 'react';
 
 const Navber = () => {
     const links=<>
-     <li><Link href={"/home"}>Home</Link></li>
-      <li><Link href={"/listbook"}>Listed Book</Link></li>
+     <li><Link href={"/"}>Home</Link></li>
+      <li><Link href={"/listbook"}>Book</Link></li>
       <li><Link href={"/pageread"}>Page to Read</Link></li>
+      <li><Link href={"/readlistbook"}>Listed Book</Link></li>
     </>
     return (
         <div className='w-[90%] mx-auto'>
