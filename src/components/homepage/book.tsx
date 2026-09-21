@@ -1,6 +1,8 @@
-import React from 'react';
-import Bookcard from '../shared/Bookcard';
-const getdata = async () => {
+import React from "react";
+import Bookcard from "../shared/Bookcard";
+import type { IBook } from "@/components/types/booktype";
+
+const getdata = async (): Promise<IBook[]> => {
   try {
     const url = `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`;
 
@@ -14,7 +16,7 @@ const getdata = async () => {
       throw new Error("Failed to fetch books data");
     }
 
-    const data = await res.json();
+    const data: IBook[] = await res.json();
 
     console.log("DATA:", data);
 
@@ -24,6 +26,7 @@ const getdata = async () => {
     return [];
   }
 };
+
 const Book = async () => {
   const booksdata = await getdata();
 
@@ -42,7 +45,7 @@ const Book = async () => {
 
       {/* Books */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {booksdata.slice(0,6).map((book) => (
+        {booksdata.slice(0, 6).map((book) => (
           <Bookcard
             key={book.bookId}
             book={book}
@@ -54,5 +57,3 @@ const Book = async () => {
 };
 
 export default Book;
-
-

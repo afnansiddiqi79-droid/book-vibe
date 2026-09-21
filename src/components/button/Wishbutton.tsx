@@ -1,15 +1,19 @@
 "use client";
-import { toast } from "react-toastify";
-import { Bookcontext } from '@/context/bookcontext';
-import React, { useContext } from 'react';
 
-const Wishbutton = ({book}) => {
-    const {wishlist,setwishlist}=useContext(Bookcontext);
-    return (
-        <div>
-        <button className="btn btn-success
-         px-8" onClick={()=>{
-           const alreadyAdded = wishlist.some(
+import { toast } from "react-toastify";
+import { Bookcontext } from "@/context/bookcontext";
+import React, { useContext } from "react";
+import type { IBook } from "@/components/types/booktype";
+
+const Wishbutton = ({ book }: { book: IBook }) => {
+  const { wishlist, setwishlist } = useContext(Bookcontext);
+
+  return (
+    <div>
+      <button
+        className="btn btn-success px-8"
+        onClick={() => {
+          const alreadyAdded = wishlist.some(
             (item) => item.bookId === book.bookId
           );
 
@@ -19,11 +23,12 @@ const Wishbutton = ({book}) => {
           } else {
             toast.warning("Book already in wish list!");
           }
-         }}>
-           Add to Wish
-              </button>
-        </div>
-    );
+        }}
+      >
+        Add to Wish
+      </button>
+    </div>
+  );
 };
 
 export default Wishbutton;

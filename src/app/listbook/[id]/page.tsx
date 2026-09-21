@@ -1,8 +1,9 @@
 import Readbutton from "@/components/button/Readbutton";
 import Wishbutton from "@/components/button/Wishbutton";
+import type { IBook } from "@/components/types/booktype";
 import React from "react";
 
-const getdata = async () => {
+const getdata = async (): Promise<IBook[]> => {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`
@@ -12,32 +13,36 @@ const getdata = async () => {
       throw new Error("Failed to fetch books data");
     }
 
-    const data = await res.json();
-
+    const data: IBook[] = await res.json();
     return data;
   } catch (error) {
     console.log("Error fetching books:", error);
+    return [];
   }
 };
 
-const Bookdetailspage = async ({ params }) => {
+const Bookdetailspage = async ({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) => {
   const { id } = await params;
 
   const booksdata = await getdata();
 
   const r = booksdata.find(
-  (item) => item.bookId === Number(id)
-);
+    (item) => item.bookId === Number(id)
+  );
 
-if (!r) {
-  return <h2>Book not found</h2>;
-}
+  if (!r) {
+    return <h2>Book not found</h2>;
+  }
 
   return (
     <div className="min-h-screen bg-base-200 py-10">
       <div className="w-[90%] max-w-5xl mx-auto">
         <div className="card lg:card-side bg-base-100 shadow-xl overflow-hidden">
-          
+
           {/* Book Image */}
           <figure className="lg:w-2/5 bg-base-200 p-8">
             <img
@@ -131,9 +136,8 @@ if (!r) {
 
             {/* Button */}
             <div className="card-actions justify-end mt-6">
-               <Readbutton book={r}></Readbutton>
-            <Wishbutton book={r}></Wishbutton>
-             
+              <Readbutton book={r}></Readbutton>
+              <Wishbutton book={r}></Wishbutton>
             </div>
 
           </div>

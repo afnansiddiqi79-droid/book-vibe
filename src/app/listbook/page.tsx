@@ -1,6 +1,8 @@
-import React from 'react';
+import React from "react";
 import Bookcard from "@/components/shared/Bookcard";
-const getdata = async () => {
+import type { IBook } from "@/components/types/booktype";
+
+const getdata = async (): Promise<IBook[]> => {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`
@@ -10,13 +12,14 @@ const getdata = async () => {
       throw new Error("Failed to fetch books data");
     }
 
-    const data = await res.json();
-
+    const data: IBook[] = await res.json();
     return data;
   } catch (error) {
     console.log("Error fetching books:", error);
+    return [];
   }
 };
+
 const listbookpage = async () => {
   const booksdata = await getdata();
 
@@ -47,4 +50,3 @@ const listbookpage = async () => {
 };
 
 export default listbookpage;
-
