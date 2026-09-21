@@ -2,9 +2,13 @@ import React from 'react';
 import Bookcard from '../shared/Bookcard';
 const getdata = async () => {
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`
-    );
+    const url = `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`;
+
+    console.log("URL:", url);
+
+    const res = await fetch(url);
+
+    console.log("STATUS:", res.status);
 
     if (!res.ok) {
       throw new Error("Failed to fetch books data");
@@ -12,9 +16,12 @@ const getdata = async () => {
 
     const data = await res.json();
 
+    console.log("DATA:", data);
+
     return data;
   } catch (error) {
-    console.log("Error fetching books:", error);
+    console.log("ERROR:", error);
+    return [];
   }
 };
 const Book = async () => {
