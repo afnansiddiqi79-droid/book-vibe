@@ -3,9 +3,21 @@ import Wishbutton from "@/components/button/Wishbutton";
 import React from "react";
 
 const getdata = async () => {
-  const res = await fetch("http://localhost:3000/booksData.json");
-  const data = await res.json();
-  return data;
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`
+    );
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch books data");
+    }
+
+    const data = await res.json();
+
+    return data;
+  } catch (error) {
+    console.log("Error fetching books:", error);
+  }
 };
 
 const Bookdetailspage = async ({ params }) => {

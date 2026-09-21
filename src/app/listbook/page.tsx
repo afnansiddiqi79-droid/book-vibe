@@ -1,10 +1,22 @@
 import React from 'react';
 import Bookcard from "@/components/shared/Bookcard";
-const getdata=async()=>{
-    const res= await fetch("http://localhost:3000/booksData.json")
-    const data=await res.json()
-    return data
-}
+const getdata = async () => {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`
+    );
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch books data");
+    }
+
+    const data = await res.json();
+
+    return data;
+  } catch (error) {
+    console.log("Error fetching books:", error);
+  }
+};
 const listbookpage = async () => {
   const booksdata = await getdata();
 
