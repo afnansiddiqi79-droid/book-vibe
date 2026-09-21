@@ -28,10 +28,10 @@ const Readlistpage = () => {
 </div>
 
   <input type="radio" name="my_tabs_2" className="tab"
-   aria-label={`Wish Books (${readBooks.length})`}/>
+   aria-label={`Wish Books (${wishlist.length})`}/>
   <div className="tab-content border-base-300 bg-base-100
    p-10">
-    { readBooks.length>0?readBooks.map(book=>{
+    { wishlist.length>0?wishlist.map(book=>{
         return <Bookcard key={book.bookId} book={book}></Bookcard>
     }):( <p className="text-center  py-4 text-2xl bg-amber-50">
       No wish books found!
@@ -39,11 +39,7 @@ const Readlistpage = () => {
     }
    </div>
 
-</div>
-      
-      
-      
-      
+</div>  
         </div>
     );
 };
