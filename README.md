@@ -1,36 +1,126 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📚 Book Vibe
 
-## Getting Started
+**Book Vibe** is a modern book discovery and reading-list web application built with Next.js, TypeScript, Tailwind CSS, DaisyUI, Context API, and Recharts.
 
-First, run the development server:
+Users can explore books, view detailed information, add books to their reading list or wishlist, and visualize their reading list through a chart.
+
+## 🔗 Links
+
+* **Live Website:** https://book-vibe-4i2p-alpha.vercel.app/
+* **GitHub Repository:** https://github.com/afnansiddiqi79-droid/book-vibe
+
+## ✨ Features
+
+* 📚 Browse and explore books
+* 🔎 View detailed information about each book
+* 📖 Add books to the Read List
+* ❤️ Add books to the Wishlist
+* 🚫 Prevent duplicate books from being added
+* 📊 Visualize reading-list data with a bar chart
+* 🔔 Toast notifications for user actions
+* 📱 Responsive design for different screen sizes
+* ⚡ Built with Next.js App Router
+* 🎨 Styled with Tailwind CSS and DaisyUI
+
+## 🛠️ Technologies Used
+
+* Next.js
+* React
+* TypeScript
+* Tailwind CSS
+* DaisyUI
+* Context API
+* Recharts
+* React Toastify
+* JSON Data
+* Vercel
+
+## 📂 Main Pages
+
+* `/home` — Home page
+* `/listbook` — Explore all books
+* `/listbook/[id]` — Book details page
+* `/readlistbook` — Read books list
+* `/pageread` — Reading progress visualization
+
+## 🧠 What I Learned
+
+While building this project, I practiced:
+
+* Next.js App Router
+* Dynamic Routes
+* Server Components
+* Client Components
+* TypeScript types and interfaces
+* Context API
+* State management with `useState`
+* `useContext`
+* Data fetching with `fetch`
+* Environment variables
+* Duplicate prevention with `some()`
+* Recharts data visualization
+* Toast notifications
+* Git and GitHub
+* Vercel deployment
+
+## 🚀 Run Locally
+
+Clone the repository:
+
+```bash
+git clone https://github.com/afnansiddiqi79-droid/book-vibe.git
+```
+
+Go to the project directory:
+
+```bash
+cd book-vibe
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Create a `.env` file in the project root:
+
+```env
+NEXT_PUBLIC_SERVER_BASE_URL=http://localhost:3000
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📌 Project Structure
 
-## Learn More
+```text
+src/
+├── app/
+│   ├── home/
+│   ├── listbook/
+│   │   └── [id]/
+│   ├── pageread/
+│   └── readlistbook/
+├── components/
+├── context/
+└── ...
 
-To learn more about Next.js, take a look at the following resources:
+public/
+└── booksData.json
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 👨‍💻 Author
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Afnan Siddiqi**
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+GitHub: https://github.com/afnansiddiqi79-droid
