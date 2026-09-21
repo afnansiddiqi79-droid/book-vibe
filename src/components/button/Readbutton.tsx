@@ -9,8 +9,13 @@ const Readbutton = ({book}) => {
         <div>
         <button className="btn btn-success
          px-8" onClick={()=>
-            {setreadBooks([...readBooks,book])
-                 toast.success("Book added to read list!");
+            { const alreadyadded=readBooks.some(item=>item.bookId===book.bookId);
+                if(!alreadyadded){
+                setreadBooks([...readBooks,book])
+                 toast.success("Book added to read list!");}
+                 else{
+                    toast.warning("Book already in read list!");
+                 }
          } }>
                 Read
               </button>

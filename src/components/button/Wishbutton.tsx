@@ -8,10 +8,18 @@ const Wishbutton = ({book}) => {
     return (
         <div>
         <button className="btn btn-success
-         px-8" onClick={()=>
-            {setwishlist([...wishlist,book]);
-                 toast.success("Book added to wish list!");
-         } }>
+         px-8" onClick={()=>{
+           const alreadyAdded = wishlist.some(
+            (item) => item.bookId === book.bookId
+          );
+
+          if (!alreadyAdded) {
+            setwishlist([...wishlist, book]);
+            toast.success("Book added to wish list!");
+          } else {
+            toast.warning("Book already in wish list!");
+          }
+         }}>
            Add to Wish
               </button>
         </div>
